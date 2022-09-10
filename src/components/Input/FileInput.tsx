@@ -27,13 +27,16 @@ import {
   FieldValues,
   UseFormSetError,
   UseFormTrigger,
+  Merge,
+  FieldErrorsImpl,
+  DeepRequired,
 } from 'react-hook-form';
 import { FiAlertCircle, FiPlus } from 'react-icons/fi';
 import { api } from '../../services/api';
 
 export interface FileInputProps {
   name: string;
-  error?: FieldError;
+  error?: Merge<FieldError, FieldErrorsImpl<DeepRequired<any>>>;
   setImageUrl: Dispatch<SetStateAction<string>>;
   localImageUrl: string;
   setLocalImageUrl: Dispatch<SetStateAction<string>>;
